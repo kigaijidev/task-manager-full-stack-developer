@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model SubscriptionPlans {
+  PlanID            Int                 @id @default(autoincrement())
+  Name              String              @db.VarChar(255)
+  MaxTodos          Int
+  Price             Decimal             @db.Decimal(10, 2)
+  UserSubscriptions UserSubscriptions[]
+}
+
+model Todos {
+  TodoID      Int       @id @default(autoincrement())
+  UserID      Int?
+  Title       String    @db.VarChar(255)
+  Description String?   @db.Text
+  IsCompleted Boolean?  @default(false)
+  CreatedAt   DateTime? @default(dbgenerated("(now())")) @db.Timestamp(0)
+  Users       Users?    @relation(fields: [UserID], references: [UserID], onDelete: NoAction, onUpdate: NoAction, map: "Todos_ibfk_1")
+
+  @@index([UserID], map: "UserID")
+}
+
+model UserSubscriptions {
+  UserID            Int
+  PlanID            Int
+  StartDate         DateTime                  @db.Date
+  EndDate           DateTime                  @db.Date
+  Status            UserSubscriptions_Status? @default(Active)
+  Count             Int?                      @default(0) @db.UnsignedInt
+  Users             Users                     @relation(fields: [UserID], references: [UserID], onDelete: NoAction, onUpdate: NoAction, map: "UserSubscriptions_ibfk_1")
+  SubscriptionPlans SubscriptionPlans         @relation(fields: [PlanID], references: [PlanID], onDelete: NoAction, onUpdate: NoAction, map: "UserSubscriptions_ibfk_2")
+
+  @@id([UserID, PlanID])
+  @@index([PlanID], map: "PlanID")
+}
+
+model Users {
+  UserID                 Int                  @id @default(autoincrement())
+  Name                   String               @db.VarChar(255)
+  Email                  String               @db.VarChar(255)
+  Password               String               @db.VarChar(255)
+  Roles                  String               @default("0000") @db.VarChar(4)
+  AccountStatus          Users_AccountStatus? @default(Active)
+  SubscriptionExpiryDate DateTime?            @db.Date
+  LastAccessDate         DateTime?            @db.Date
+  Payments               Payments?
+  Todos                  Todos[]
+  TokenExpireds          TokenExpireds?
+  UserSubscriptions      UserSubscriptions[]
+}
+
+model TokenExpireds {
+  UserID Int     @id @default(autoincrement())
+  Token  String? @db.Text
+  Users  Users   @relation(fields: [UserID], references: [UserID], onDelete: NoAction, onUpdate: NoAction, map: "TokenExpireds_ibfk_1")
+}
+
+model Payments {
+  UserID     Int    @id @default(autoincrement())
+  Currency   Int    @db.UnsignedInt
+  FullName   String @db.VarChar(255)
+  Bank       String @db.VarChar(255)
+  BankNumber String @db.VarChar(255)
+  Users      Users  @relation(fields: [UserID], references: [UserID], onDelete: NoAction, onUpdate: NoAction, map: "Payments_ibfk_1")
+}
+
+enum Users_AccountStatus {
+  Active
+  Suspended
+}
+
+enum UserSubscriptions_Status {
+  Active
+  Canceled
+  Expired
+}

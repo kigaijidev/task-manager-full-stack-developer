@@ -9,7 +9,8 @@ const router = express.Router()
 
 router.use(verifyJWT)
 
-router.patch('/info', asyncHandler(PaymentController.updateInfo))
+router.get('', asyncHandler(PaymentController.findPaymentByUser))
+router.patch('', asyncHandler(PaymentController.updateInfo))
 
 router.use(permission(1111))
 

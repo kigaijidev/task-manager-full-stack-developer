@@ -19,7 +19,6 @@ model Todos {
   TodoID      Int       @id @default(autoincrement())
   UserID      Int?
   Title       String    @db.VarChar(255)
-  Description String?   @db.Text
   IsCompleted Boolean?  @default(false)
   CreatedAt   DateTime? @default(dbgenerated("(now())")) @db.Timestamp(0)
   Users       Users?    @relation(fields: [UserID], references: [UserID], onDelete: NoAction, onUpdate: NoAction, map: "Todos_ibfk_1")

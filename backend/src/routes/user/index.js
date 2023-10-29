@@ -10,6 +10,7 @@ const router = express.Router()
 router.use(verifyJWT)
 
 router.get('/info', asyncHandler(UserController.findOneByUser))
+router.patch('/info', asyncHandler(UserController.updateInfo))
 
 router.use(permission(1111))
 

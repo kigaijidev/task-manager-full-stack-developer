@@ -108,10 +108,41 @@ class AccessService {
     }
 
     static logout = async ( userId, token ) => {
-        await prisma.tokenExpireds.create({ data: {
-            UserID: parseInt(userId),
-            Token: token,
+        await prisma.tokenExpireds.upsert({ 
+            where: { UserID: +userId },
+            create:{ 
+                UserID: +userId,
+                Token: token,
+            },
+            update: {
+                Token: token,
         }}).catch((error) => {
+            throw new ForbiddenError(`Forbidden Error`)
+        }).finally(() => {
+            return []
+        })
+    }
+
+    static changePassword = async ({userId, oldPass, newPass, validNewPass }) => {
+
+        if(!oldPass || !newPass || !validNewPass ){
+            throw new BadRequestError('Invalid Request')
+        }
+        if(newPass !== validNewPass){
+            throw new BadRequestError('Password not match')
+        }
+
+        const user =  await prisma.users.findFirst({where: { UserID: userId }})
+        const compare = await bcrypt.compare(oldPass, user.Password)
+        if(!compare){
+            throw new AuthFailError('Password invalid')
+        }
+
+        const hashPassword = await bcrypt.hash(newPass, 10);
+        await prisma.users.update({
+            where: { UserID: userId },
+            data: { Password: hashPassword }
+        }).catch((error) => {
             throw new ForbiddenError(`Forbidden Error`)
         }).finally(() => {
             return []

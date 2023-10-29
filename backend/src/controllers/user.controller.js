@@ -26,9 +26,19 @@ class UserController {
     }
 
     activeUser = async (req, res, next) => {
-        new CREATED({
+        new SuccessResponse({
             message: 'Active User Success', 
             metadata: await UserService.active(req.params.userId)
+        }).send(res)
+    }
+
+    updateInfo = async (req, res, next) => {
+        new SuccessResponse({
+            message: 'Update info Success', 
+            metadata: await UserService.updateInfo({
+                ...req.body,
+                userId: req.user.UserID
+            })
         }).send(res)
     }
 

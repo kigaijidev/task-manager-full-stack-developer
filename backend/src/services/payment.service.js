@@ -105,6 +105,21 @@ class PaymentService {
 
         return await Promise.all(monthlyFee);
     }
+
+    static getInfo = async (userId) => {
+
+        if(!userId){
+            throw new BadRequestError('Invalid Request')
+        }
+
+        const payment = await prisma.payments.findFirst({where: { UserID: userId }})
+        .catch(() => {
+            throw new BadRequestError('Cannot Find Info Payment')
+        })
+
+        return payment
+
+    }
 }
 
 module.exports = PaymentService

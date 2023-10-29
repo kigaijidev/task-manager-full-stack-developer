@@ -8,9 +8,9 @@ const prisma = new PrismaClient()
 
 class TodoService {
 
-    static create = async ({ userId, title, description }) => {
+    static create = async ({ userId, title }) => {
 
-        if(!userId || !title || !description){
+        if(!userId || !title){
             throw new BadRequestError('Invalid Request')
         }
 
@@ -44,7 +44,6 @@ class TodoService {
             prisma.todos.create({
                 data: {
                     Title: title,
-                    Description: description,
                     UserID: userId,
                 }
             }),
@@ -52,7 +51,8 @@ class TodoService {
                 where: { UserID_PlanID: { UserID: planUsing.UserID, PlanID: planUsing.PlanID } },
                 data: { Count: { increment: 1 } }
             }),
-        ]).catch(() => {
+        ]).catch((err) => {
+            console.log(err)
             throw new ForbiddenError('Create Todo Error')
         })
 
@@ -71,7 +71,6 @@ class TodoService {
             where: { TodoID: +todoId, UserID: userId },
             data:{
                 Title: title,
-                Description: description
             }
         })
 

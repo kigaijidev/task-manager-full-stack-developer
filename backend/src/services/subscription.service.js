@@ -56,18 +56,17 @@ class SubscriptionService {
                     EndDate: addDays(new Date, 30),
                     Status: 'Active',
                     Count: 0,
-                    PricePlan: checkPlan.Price,
                 },
                 update: {
                     StartDate: new Date(),
                     EndDate: addDays(new Date, 30),
                     Status: 'Active',
                     Count: 0,
-                    PricePlan: checkPlan.Price,
                 }
                 
             })
-        ]).catch(() => {
+        ]).catch((err) => {
+            console.log(err)
             throw new ForbiddenError('Upgrade Error')
         })
 

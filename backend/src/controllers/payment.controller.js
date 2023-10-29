@@ -24,6 +24,13 @@ class PaymentController {
         }).send(res)
     }
 
+    findPaymentByUser = async (req, res, next) => {
+        new SuccessResponse({
+            message: 'Find Success', 
+            metadata: await PaymentService.getInfo(req.user.UserID)
+        }).send(res)
+    }
+
 }
 
 module.exports = new PaymentController()

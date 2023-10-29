@@ -12,5 +12,6 @@ router.post('/auth/login', asyncHandler(accessController.login))
 router.use(verifyJWT)
 
 router.post('/auth/logout', asyncHandler(accessController.logout))
+router.post('/auth/change-password', asyncHandler(accessController.changePassword))
 
 module.exports = router

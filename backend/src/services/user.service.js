@@ -39,18 +39,40 @@ class UserService {
     
     static findOneByUser = async (userId) => {
 
-        const user = await prisma.users.findFirst({
-            where: { UserID: userId },
-            select: {
-                Name: true,
-                Email: true,
-                LastAccessDate: true,
-                AccountStatus: true,
-                Roles: true,
-                SubscriptionExpiryDate: true,
-                UserID: true
-            }
-        }).catch((err) => {
+        const [user, newUser] = await prisma.$transaction([
+            prisma.users.findFirst({
+                where: { UserID: userId },
+                select: {
+                    Name: true,
+                    Email: true,
+                    LastAccessDate: true,
+                    AccountStatus: true,
+                    Roles: true,
+                    SubscriptionExpiryDate: true,
+                    UserID: true,
+                    Payments: {
+                        select: {
+                            Currency: true
+                        }
+                    },
+                    UserSubscriptions:{
+                        where: { Status: 'Active' },
+                        select:{
+                            SubscriptionPlans:{
+                                select:{
+                                    Name: true
+                                }
+                            }
+                        }
+                    }
+                }
+            }),
+            prisma.users.update({
+                where:{ UserID: userId },
+                data:{ LastAccessDate: new Date() }
+            })
+        ]).catch((err) => {
+            console.log(err)
             throw new ForbiddenError('User not exists')
         })
 
@@ -130,6 +152,20 @@ class UserService {
         })
 
         return console.log(`Have ${userSuspended.count} is Suspended`);
+    }
+
+    static updateInfo = async ({userId, name}) => {
+        if(!name){
+            throw new BadRequestError('Invalid Request')
+        }
+        const user = await prisma.users.update({ 
+            where: { UserID: +userId },
+            data: { Name: name }
+        }).catch((err) => {
+            throw new ForbiddenError('Update user error')
+        })
+
+        return getInfoData({ fields: ['UserID', "Name", "Email", "AccountStatus", "SubscriptionExpiryDate"], object: user });
     }
 }
 

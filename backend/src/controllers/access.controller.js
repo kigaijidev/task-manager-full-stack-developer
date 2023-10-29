@@ -12,6 +12,7 @@ class AccessController {
     }
 
     login = async (req, res, next) => {
+        console.log(req)
         new SuccessResponse({
             message: 'Success',
             metadata: await AccessService.login(req.body)
@@ -22,6 +23,16 @@ class AccessController {
         new SuccessResponse({
             message: 'Logout success!',
             metadata: await AccessService.logout(req.user.UserID, req.token)
+        }).send(res)
+    }
+
+    changePassword = async (req, res, next) => {
+        new SuccessResponse({
+            message: 'Logout success!',
+            metadata: await AccessService.changePassword({
+                ...req.body,
+                userId: req.user.UserID
+            })
         }).send(res)
     }
 }

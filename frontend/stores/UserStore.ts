@@ -179,6 +179,20 @@ export const useUserStore = defineStore(
         });
       },
 
+      async changePassword(oldPass: string, newPass: string, validNewPass: string) {
+        const token = getCookie('token');
+        const { UserID } = JwtDecode(token)
+        await axios.patch(this.apiLink + "auth/change-password", { oldPass, newPass, validNewPass }, {
+          headers:{
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+            "client-id": UserID
+          }
+        }).catch((err) => {
+          throw err.response.data.message;
+        });
+      },
+
       async userExists(){
         const token = getCookie('token');
 

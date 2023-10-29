@@ -27,6 +27,10 @@
     <NuxtLink class="btn" to="/home">
       <Icon name="ion:arrow-undo" /> Back 
     </NuxtLink>
+
+    <NuxtLink class="btn" to="/change-password">
+      <Icon name="ion:at-circle" /> Change password 
+    </NuxtLink>
   </form>
 </template>
 

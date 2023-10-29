@@ -1,0 +1,726 @@
+{
+	"info": {
+		"_postman_id": "a3b7df26-43ad-4918-b36e-29b173feb570",
+		"name": "Todo List",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28549635"
+	},
+	"item": [
+		{
+			"name": "Plan",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjMsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ1c2VyMTFAZ21haWwuY29tIiwiUGFzc3dvcmQiOiIkMmIkMTAkU2lIRkl4TXNxT0tFQm9Lc3Fyb21NT0p4WDVTTHhLNUhySDJDdnNycHl0VVZna3lRSXN3TnEiLCJSb2xlcyI6IjAwMDAiLCJBY2NvdW50U3RhdHVzIjoiQWN0aXZlIiwiU3Vic2NyaXB0aW9uU3RhdHVzIjoiRnJlZSIsIlN1YnNjcmlwdGlvbkV4cGlyeURhdGUiOiIyMDIzLTEwLTMwVDAwOjAwOjAwLjAwMFoiLCJMYXN0QWNjZXNzRGF0ZSI6bnVsbCwiaWF0IjoxNjk4NDEyODgyLCJleHAiOjE2OTg1ODU2ODJ9.OSUxZ0TfLf5Y2VP5j1AZHKkvJifK8ErjNlRJID_Pf84",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "3",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}plan",
+							"host": [
+								"{{baseUrl}}plan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjMsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ1c2VyMTFAZ21haWwuY29tIiwiUGFzc3dvcmQiOiIkMmIkMTAkU2lIRkl4TXNxT0tFQm9Lc3Fyb21NT0p4WDVTTHhLNUhySDJDdnNycHl0VVZna3lRSXN3TnEiLCJSb2xlcyI6IjAwMDAiLCJBY2NvdW50U3RhdHVzIjoiQWN0aXZlIiwiU3Vic2NyaXB0aW9uU3RhdHVzIjoiRnJlZSIsIlN1YnNjcmlwdGlvbkV4cGlyeURhdGUiOiIyMDIzLTEwLTI4VDAwOjAwOjAwLjAwMFoiLCJMYXN0QWNjZXNzRGF0ZSI6IjIwMjMtMTAtMjdUMDA6MDA6MDAuMDAwWiIsImlhdCI6MTY5ODQxMzI1OCwiZXhwIjoxNjk4NTg2MDU4fQ.JkNsXcwJcQvyhjnWK8oxA8MOVFWNIQ5jLRiMQmkIF7I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Test\",\r\n    \"maxTodos\":5555,\r\n    \"price\":1111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}plan",
+							"host": [
+								"{{baseUrl}}plan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjEsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsIlBhc3N3b3JkIjoiJDJiJDEwJGYuaGxqd1E5UEhMVWZLSkdwc3pMay55dE9WdVRHQWJnUExoajg0OE82by4uMWpyUWg0anlpIiwiQWNjb3VudFN0YXR1cyI6IkFjdGl2ZSIsIlN1YnNjcmlwdGlvblN0YXR1cyI6IkZyZWUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOiIyMDIzLTEwLTI3VDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2OTgzOTA4NTEsImV4cCI6MTY5ODU2MzY1MX0.dSAJ19WtBh8ZAuPT64MB2RHpsPUMufERVJtUrc3HbWs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Premium\",\r\n    \"maxTodos\":999999,\r\n    \"price\":299\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}plan/4",
+							"host": [
+								"{{baseUrl}}plan"
+							],
+							"path": [
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjEsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsIlBhc3N3b3JkIjoiJDJiJDEwJGYuaGxqd1E5UEhMVWZLSkdwc3pMay55dE9WdVRHQWJnUExoajg0OE82by4uMWpyUWg0anlpIiwiQWNjb3VudFN0YXR1cyI6IkFjdGl2ZSIsIlN1YnNjcmlwdGlvblN0YXR1cyI6IkZyZWUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOiIyMDIzLTEwLTI3VDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2OTgzOTA4NTEsImV4cCI6MTY5ODU2MzY1MX0.dSAJ19WtBh8ZAuPT64MB2RHpsPUMufERVJtUrc3HbWs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}plan/7",
+							"host": [
+								"{{baseUrl}}plan"
+							],
+							"path": [
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription",
+			"item": [
+				{
+					"name": "Upgrade",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjgsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtdVhSVHRVUkFzQnF6QWgwL2RPLkR1dHIvaC5JNTFwc2pYOWtZWi43dVZrZ05rQlpRLmlYbSIsIlJvbGVzIjoiMDAwMCIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQyNDY0MywiZXhwIjoxNjk4NjgzODQzfQ.uJ_YLUSpMFOByyCJCwhihcgR1pIl7dSZGpHHOtHNexg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}subscription/3",
+							"host": [
+								"{{baseUrl}}subscription"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjgsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtdVhSVHRVUkFzQnF6QWgwL2RPLkR1dHIvaC5JNTFwc2pYOWtZWi43dVZrZ05rQlpRLmlYbSIsIlJvbGVzIjoiMDAwMCIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQyNDY0MywiZXhwIjoxNjk4NjgzODQzfQ.uJ_YLUSpMFOByyCJCwhihcgR1pIl7dSZGpHHOtHNexg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}subscription/cancel",
+							"host": [
+								"{{baseUrl}}subscription"
+							],
+							"path": [
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Todo",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjgsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtdVhSVHRVUkFzQnF6QWgwL2RPLkR1dHIvaC5JNTFwc2pYOWtZWi43dVZrZ05rQlpRLmlYbSIsIlJvbGVzIjoiMDAwMCIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQyNDY0MywiZXhwIjoxNjk4NjgzODQzfQ.uJ_YLUSpMFOByyCJCwhihcgR1pIl7dSZGpHHOtHNexg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Todo 1\",\r\n    \"description\":\"This is Todo 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}todo",
+							"host": [
+								"{{baseUrl}}todo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjgsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtdVhSVHRVUkFzQnF6QWgwL2RPLkR1dHIvaC5JNTFwc2pYOWtZWi43dVZrZ05rQlpRLmlYbSIsIlJvbGVzIjoiMDAwMCIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQyNDY0MywiZXhwIjoxNjk4NjgzODQzfQ.uJ_YLUSpMFOByyCJCwhihcgR1pIl7dSZGpHHOtHNexg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Update Todo 1\",\r\n    \"description\":\"Update Description 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}todo/1",
+							"host": [
+								"{{baseUrl}}todo"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjgsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtdVhSVHRVUkFzQnF6QWgwL2RPLkR1dHIvaC5JNTFwc2pYOWtZWi43dVZrZ05rQlpRLmlYbSIsIlJvbGVzIjoiMDAwMCIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQyNDY0MywiZXhwIjoxNjk4NjgzODQzfQ.uJ_YLUSpMFOByyCJCwhihcgR1pIl7dSZGpHHOtHNexg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}todo/update-status/1",
+							"host": [
+								"{{baseUrl}}todo"
+							],
+							"path": [
+								"update-status",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjgsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0MkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtdVhSVHRVUkFzQnF6QWgwL2RPLkR1dHIvaC5JNTFwc2pYOWtZWi43dVZrZ05rQlpRLmlYbSIsIlJvbGVzIjoiMDAwMCIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQyNDY0MywiZXhwIjoxNjk4NjgzODQzfQ.uJ_YLUSpMFOByyCJCwhihcgR1pIl7dSZGpHHOtHNexg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}todo/1",
+							"host": [
+								"{{baseUrl}}todo"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Increase Currency",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjksIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtVUJVSVE1MDNnZE9iTlFVNjZyQS5lR1RlYmRHbWg2WGNxaW85OG1MUzdBeUh4NHVrbC83NiIsIlJvbGVzIjoiMTExMSIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMVQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQ2ODE0NCwiZXhwIjoxNjk4NzI3MzQ0fQ.41dySwsqOIHKXPuZ4yk72X8YYr3PoufdfrKLrEreJA0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "9",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\":50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}payment/currency/8",
+							"host": [
+								"{{baseUrl}}payment"
+							],
+							"path": [
+								"currency",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update info",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Info payment By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}payment",
+							"host": [
+								"{{baseUrl}}payment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Find All By Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjksIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtVUJVSVE1MDNnZE9iTlFVNjZyQS5lR1RlYmRHbWg2WGNxaW85OG1MUzdBeUh4NHVrbC83NiIsIlJvbGVzIjoiMTExMSIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMVQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQ2ODE0NCwiZXhwIjoxNjk4NzI3MzQ0fQ.41dySwsqOIHKXPuZ4yk72X8YYr3PoufdfrKLrEreJA0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}user",
+							"host": [
+								"{{baseUrl}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Info by User",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Active User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjksIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtVUJVSVE1MDNnZE9iTlFVNjZyQS5lR1RlYmRHbWg2WGNxaW85OG1MUzdBeUh4NHVrbC83NiIsIlJvbGVzIjoiMTExMSIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMVQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQ2ODE0NCwiZXhwIjoxNjk4NzI3MzQ0fQ.41dySwsqOIHKXPuZ4yk72X8YYr3PoufdfrKLrEreJA0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}user/active/10",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"active",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjksIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJQYXNzd29yZCI6IiQyYiQxMCRtVUJVSVE1MDNnZE9iTlFVNjZyQS5lR1RlYmRHbWg2WGNxaW85OG1MUzdBeUh4NHVrbC83NiIsIlJvbGVzIjoiMTExMSIsIkFjY291bnRTdGF0dXMiOiJBY3RpdmUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMVQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOm51bGwsImlhdCI6MTY5ODQ2ODE0NCwiZXhwIjoxNjk4NzI3MzQ0fQ.41dySwsqOIHKXPuZ4yk72X8YYr3PoufdfrKLrEreJA0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "client-id",
+								"value": "9",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}user/10",
+							"host": [
+								"{{baseUrl}}user"
+							],
+							"path": [
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SignUp",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkNhbyBNaW5oIiwiZW1haWwiOiJ0ZXN0YWRtaW5AZ21haWwuY29tIiwicGhvbmUiOiIwMzc4MDE4NTE2IiwiYmlydGhfZGF5IjoiMjAwMC0wMy0yN1QwMDowMDowMC4wMDBaIiwiZ2VuZGVyIjoibWFsZSIsInJvbGUiOiJ1c2VyIiwiYXZhdGFyIjpudWxsLCJpc19kZWxldGVkIjpmYWxzZSwiY3JlYXRlZF9hdCI6IjIwMjMtMDgtMThUMTQ6MDk6MTguNjc1WiIsImlhdCI6MTY5MjM2Nzk1MSwiZXhwIjoxNjkyMzY4ODUxfQ.5jr_dVil8ggG4ANO2sPXpE9Zk4LwJzU5eF7rt0g4IEo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Minh\",\r\n    \"email\":\"test2@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}auth/signup",
+					"host": [
+						"{{baseUrl}}auth"
+					],
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test2@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}auth/login",
+					"host": [
+						"{{baseUrl}}auth"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjEsIk5hbWUiOiJNaW5oIiwiRW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsIlBhc3N3b3JkIjoiJDJiJDEwJGYuaGxqd1E5UEhMVWZLSkdwc3pMay55dE9WdVRHQWJnUExoajg0OE82by4uMWpyUWg0anlpIiwiQWNjb3VudFN0YXR1cyI6IkFjdGl2ZSIsIlN1YnNjcmlwdGlvblN0YXR1cyI6IkZyZWUiLCJTdWJzY3JpcHRpb25FeHBpcnlEYXRlIjoiMjAyMy0xMC0zMFQwMDowMDowMC4wMDBaIiwiTGFzdEFjY2Vzc0RhdGUiOiIyMDIzLTEwLTI3VDAwOjAwOjAwLjAwMFoiLCJpYXQiOjE2OTgzODg1NTMsImV4cCI6MTY5ODU2MTM1M30.kDU625P9ATCyeCf0yL-l8XBG-LIgLQhpJ7JTPY--fUE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "client-id",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}auth/logout",
+					"host": [
+						"{{baseUrl}}auth"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjEwLCJOYW1lIjoiUGF5bWVudCIsIkVtYWlsIjoidGVzdFBheW1lbnRAZ21haWwuY29tIiwiUGFzc3dvcmQiOiIkMmIkMTAkSUNMV1N5Q0dQQ3FRdU5uLlpPMVh4ZXU3WDAxNzYycjlSQWRlbS9ORlVpaDBnbk13TWx5cC4iLCJSb2xlcyI6IjAwMDAiLCJBY2NvdW50U3RhdHVzIjoiQWN0aXZlIiwiU3Vic2NyaXB0aW9uRXhwaXJ5RGF0ZSI6IjIwMjMtMTAtMzFUMDA6MDA6MDAuMDAwWiIsIkxhc3RBY2Nlc3NEYXRlIjoiMjAyMy0xMC0yOFQwMDowMDowMC4wMDBaIiwiaWF0IjoxNjk4NDc0ODgyLCJleHAiOjE2OTg3MzQwODJ9.hdWWSwJKYzUeblW-fE_g3T3IZdh9JdMzAhAdArvvBVw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"oldPass\":\"\",\r\n    \"newPass\":\"\",\r\n    \"ValidPass\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}auth/change-password",
+					"host": [
+						"{{baseUrl}}auth"
+					],
+					"path": [
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3055/v1/api/"
+		}
+	]
+}
